@@ -1,0 +1,30 @@
+<app-search-weather-display></app-search-weather-display>
+
+<div class="card">
+  
+  <mat-tab-group style="background-color: cadetblue;">
+    <mat-tab *ngFor="let data of weatherData">
+      <ng-template mat-tab-label style="color: #7b1fa2;">
+        {{ data.cityName }}
+        <p><img src="{{data.iconURL}}" alt="weather image"></p>
+      </ng-template>
+      <div style="padding-left: 1rem;">
+        <p><img src="{{data.iconURL}}" alt="weather image"></p>
+        <h2>{{ data.cityWeather.description }}</h2>
+        <p>Temperature: {{ data.temp }} °F</p>
+      </div>
+      
+      <div class="timeline">
+        <h1>3-hr Forecase</h1>
+        <div *ngFor="let item of timeline">
+          <p *ngIf="item.name == data.cityName"><img width="50px" src="{{data.iconURL}}" alt="weather image"></p>
+            <div *ngIf="item.name == data.cityName">{{item.time | date: 'HH:mm'}}</div>
+            <div *ngIf="item.name == data.cityName">{{item.temp | number: '1.0-0'}}  °F</div>
+        </div>
+      </div>
+
+      <app-future [data] ="data" [forecasts]="fiveDayWeatherData"></app-future>
+
+    </mat-tab>
+  </mat-tab-group>
+</div>

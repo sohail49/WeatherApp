@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-light" style="display: block; margin: 1rem;">
+  
+    <input type="text" [(ngModel)]="cityNameSearch" placeholder="Enter city name">
+  <button style="margin-left: 1rem;" (click)="search()">Search</button>
+  
+</nav>
+
+<div class="card" *ngIf="searchWeatherData.data" style="background-color: cadetblue;">
+  <div class="card-body">
+      <h2>{{searchWeatherData.data.name}}</h2>
+      <p><img src="assets/images/{{searchWeatherData.data.weather[0].icon}}.png" alt="weather image"></p>
+      <p>Temperature: {{ searchWeatherData.data.main.temp }} °F</p>
+      <p>Humidity: {{ searchWeatherData.data.main.humidity }} %</p> 
+  </div>
+</div>

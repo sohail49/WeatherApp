@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+cities = ['rio de janeiro', 'beijing', 'los angeles'];
+
   title = 'Openweather';
 }

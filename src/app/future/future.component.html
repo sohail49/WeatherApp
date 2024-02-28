@@ -1,0 +1,17 @@
+<div class="primary" style="margin-top: 2rem; padding-left: 1rem;">
+    <h3>5 Day Forecast</h3>
+    <ul *ngFor="let forecast of forecasts">
+      
+        <li *ngIf="forecast.name == data.cityName" class="main">
+            {{forecast.dt_txt | date:'EEE, MMM dd'}}
+            <img  class="icon" src="assets/images/{{forecast.icon}}.png" alt="icon">
+            <span>
+                {{forecast.description }}
+            </span>
+            <span>
+                {{forecast.temp | number: '1.0-0'}} °F
+            </span>
+        </li>
+        
+    </ul>
+  </div>
